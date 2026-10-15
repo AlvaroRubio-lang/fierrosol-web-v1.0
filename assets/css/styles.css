@@ -1,0 +1,428 @@
+/* ==========================================================================
+   Fierrosol S.A.C. — Hoja de estilos principal
+   Orden: 1 Variables · 2 Base · 3 Tipografía · 4 Íconos · 5 Botones ·
+          6 Header · 7 Hero · 8 Empresa · 9 Fotos · 10 Servicios ·
+          11 Productos · 12 Contacto · 13 Footer · 14 Responsive
+   Las rutas relativas parten de assets/css/ (ej.: ../img/logo.jpg)
+   ========================================================================== */
+
+/* 1. Variables ------------------------------------------------------------ */
+:root {
+  --graphite: #1E2124;
+  --steel: #3B4048;
+  --steel-light: #5C6773;
+  --orange: #E8590C;
+  --orange-dark: #C94C09;
+  --paper: #F2F2F0;
+  --ink: #202225;
+  --line: #D8D6D1;
+
+  /* Fallback stack: si la web font no carga, el navegador usa la del sistema */
+  --font-title: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  --font-body: "Inter", Arial, Helvetica, sans-serif;
+}
+
+/* 2. Base ----------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;           /* 1rem = 16px del navegador */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;          /* interlineado relativo recomendado */
+  color: var(--ink);
+  background: var(--paper);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.wrap {
+  max-width: 71.25rem;       /* 1140px */
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* 3. Tipografía ----------------------------------------------------------- */
+h1, h2, h3 {
+  font-family: var(--font-title);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  color: var(--graphite);
+}
+
+h2 { font-size: 2.25rem; }
+h3 { font-size: 1.3rem; }
+
+.section__lead {
+  color: #5a5e63;
+  margin: 0.6rem 0 2.2rem;
+}
+
+/* 4. Íconos (Font Awesome) ------------------------------------------------ */
+h3 > i,
+.hero__eyebrow > i {
+  color: var(--orange);
+  margin-right: 0.45rem;
+}
+
+/* 5. Botones con ícono ---------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;              /* espacio ícono-texto */
+  padding: 0.8rem 1.6rem;
+  border-radius: 2px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.btn--solid {
+  background: var(--orange);
+  color: #fff;
+}
+.btn--solid:hover { background: var(--orange-dark); }
+
+.btn--line {
+  border: 1.5px solid #6b7178;
+  color: #fff;
+}
+.btn--line:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+/* 6. Header --------------------------------------------------------------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--graphite);
+  border-bottom: 3px solid var(--orange);
+}
+
+.header__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4.25rem;
+}
+
+.brand {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.brand span {
+  margin-left: 0.4rem;
+  color: var(--orange);
+}
+
+.nav a {
+  margin-left: 1.75rem;
+  font-size: 0.92rem;
+  color: #d8dadd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.nav a:hover { color: var(--orange); }
+
+/* 7. Hero ----------------------------------------------------------------- */
+.hero {
+  padding: 4.4rem 0 3.75rem;
+  background: var(--graphite);
+  color: #fff;
+}
+
+.hero__row {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.hero__text { flex: 1.2; }
+
+.hero__eyebrow {
+  margin-bottom: 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+.hero h1 {
+  margin-bottom: 1.25rem;
+  font-size: 2.9rem;
+  color: #fff;
+}
+
+.hero__lead {
+  max-width: 32.5rem;
+  margin-bottom: 1.9rem;
+  font-size: 1.05rem;
+  color: #c7cacd;
+}
+
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.hero__graphic {
+  flex: 0.8;
+  display: flex;
+  justify-content: center;
+}
+
+.hero__graphic img {
+  width: 100%;
+  max-width: 16.25rem;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 0.4rem rgba(255, 255, 255, 0.08);
+}
+
+/* 8. La empresa ----------------------------------------------------------- */
+.empresa { padding: 4.5rem 0; }
+
+.empresa__row {
+  display: flex;
+  gap: 3.5rem;
+}
+
+.empresa__main { flex: 1.5; }
+
+.empresa__main h2 { margin-bottom: 0.4rem; }
+
+.empresa__lema {
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+  color: var(--orange-dark);
+}
+
+.empresa__main p { margin-bottom: 1rem; max-width: 40rem; }
+
+.empresa__aside {
+  flex: 1;
+  padding-left: 1.75rem;
+  border-left: 3px solid var(--orange);
+}
+
+.empresa__aside h3 { margin: 1.25rem 0 0.5rem; }
+.empresa__aside h3:first-child { margin-top: 0; }
+.empresa__aside p { font-size: 0.95rem; color: #4a4e53; }
+
+blockquote {
+  margin-top: 1.5rem;
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--steel);
+  font-style: italic;
+  color: var(--steel);
+}
+
+blockquote > i {
+  margin-right: 0.4rem;
+  color: var(--orange);
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--graphite);
+}
+
+/* 9. Fotos reales --------------------------------------------------------- */
+.foto-par {
+  display: flex;
+  gap: 1.25rem;
+  margin: 2.2rem 0 0.6rem;
+}
+
+.foto-par figure {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-top: 3px solid var(--orange);
+}
+
+.foto-par img {
+  display: block;
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+}
+
+.foto-par figcaption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.82rem;
+  color: #fff;
+  background: rgba(30, 33, 36, 0.78);
+}
+
+/* Anchos proporcionales a la relación de aspecto de cada foto (evita recortes) */
+.foto-par--empresa figure:first-child { flex: 0.76; }
+.foto-par--empresa figure:last-child  { flex: 1.99; }
+.foto-par--retrato figure:first-child { flex: 0.7; }
+.foto-par--retrato figure:last-child  { flex: 2.59; }
+
+/* 10. Servicios ----------------------------------------------------------- */
+.servicios {
+  padding: 4.5rem 0;
+  background: #fff;
+}
+
+.lista-servicios {
+  margin-top: 2.2rem;
+  border-top: 1px solid var(--line);
+}
+
+.servicio {
+  display: flex;
+  gap: 1.6rem;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.servicio__num {
+  min-width: 3.75rem;
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--orange);
+}
+
+.servicio h3 { margin-bottom: 0.4rem; font-size: 1.35rem; }
+.servicio p { max-width: 43.75rem; color: #4a4e53; }
+
+/* 11. Productos ----------------------------------------------------------- */
+.productos { padding: 4.5rem 0; }
+
+.grid-productos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  margin-top: 1.9rem;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.cat {
+  flex: 1 1 15rem;
+  padding: 1.5rem;
+  background: #fff;
+}
+
+.cat__icono {
+  display: block;
+  margin-bottom: 0.7rem;
+  font-size: 1.5rem;
+  color: var(--orange);
+}
+
+.cat h3 { margin-bottom: 0.5rem; font-size: 1.1rem; }
+.cat p { font-size: 0.88rem; color: #55595e; }
+
+/* 12. Contacto ------------------------------------------------------------ */
+.contacto {
+  padding: 4rem 0;
+  background: var(--graphite);
+  color: #fff;
+}
+
+.contacto h2 { margin-bottom: 1.1rem; color: #fff; }
+
+.contacto__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.contacto__lista { list-style: none; }
+
+.contacto__lista li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  margin-bottom: 0.55rem;
+  color: #c7cacd;
+}
+
+.contacto__lista i {
+  width: 1.2rem;
+  text-align: center;
+  color: var(--orange);
+}
+
+.contacto__horario p { margin-bottom: 0.5rem; color: #c7cacd; }
+.contacto__horario h3 { margin-bottom: 0.8rem; color: #fff; }
+
+.contacto__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+/* 13. Footer -------------------------------------------------------------- */
+.footer {
+  padding: 1.25rem 0;
+  font-size: 0.82rem;
+  color: #8a8d91;
+  background: #16181a;
+}
+
+.footer p + p { margin-top: 0.2rem; }
+
+/* 14. Responsive ---------------------------------------------------------- */
+@media (max-width: 50rem) {
+  .hero__row,
+  .empresa__row,
+  .contacto__row { flex-direction: column; }
+
+  .empresa__aside {
+    padding-top: 1.25rem;
+    padding-left: 0;
+    border-top: 3px solid var(--orange);
+    border-left: none;
+  }
+
+  .nav a { margin-left: 1rem; font-size: 0.85rem; }
+  .hero h1 { font-size: 2.2rem; }
+
+  .foto-par { flex-direction: column; }
+  .foto-par figure:first-child,
+  .foto-par figure:last-child { flex: none; }
+  .foto-par img { height: 14rem; }
+
+  .cat { flex: 1 1 45%; }
+}

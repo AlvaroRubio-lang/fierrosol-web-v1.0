@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fierrosol S.A.C. — Metalmecánica y distribución de aceros</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fierrosol S.A.C. — metalmecánica y distribución de aceros en Chorrillos, Lima. Corte, doblez, rolado, soldadura, planchas, perfiles, barras y tubos.">
+  <title>Fierrosol S.A.C. — Metalmecánica y distribución de aceros</title>
+
+  <!-- Google Fonts: preconnect + pesos limitados (Barlow Condensed 600/700 · Inter 400/600) + display=swap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome v6 (CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Hojas de estilo locales: reset + estilos principales -->
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 </head>
 <body>
 
 <header class="header">
   <div class="wrap header__row">
-    <div class="brand">FIERROSOL<span>S.A.C.</span></div>
-    <nav class="nav">
+    <div class="brand">Fierrosol<span>S.A.C.</span></div>
+    <nav class="nav" aria-label="Navegación principal">
       <a href="#empresa">La empresa</a>
       <a href="#servicios">Servicios</a>
       <a href="#productos">Productos</a>
@@ -20,19 +34,21 @@
   </div>
 </header>
 
+<main>
+
 <section class="hero">
   <div class="wrap hero__row">
     <div class="hero__text">
-      <p class="hero__eyebrow">Metalmecánica desde 2011 — Chorrillos, Lima</p>
+      <p class="hero__eyebrow"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Metalmecánica desde 2011 — Chorrillos, Lima</p>
       <h1>Estructura, corte y acero<br>a la medida de su obra.</h1>
       <p class="hero__lead">Fabricación, montaje y mantenimiento de estructuras metálicas, junto con la distribución de planchas, perfiles, barras y tubos de acero para construcción e industria.</p>
       <div class="hero__cta">
-        <a href="#productos" class="btn btn--solid">Ver catálogo de productos</a>
-        <a href="#contacto" class="btn btn--line">Solicitar cotización</a>
+        <a href="#productos" class="btn btn--solid"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i><span>Ver catálogo de productos</span></a>
+        <a href="#contacto" class="btn btn--line"><i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i><span>Solicitar cotización</span></a>
       </div>
     </div>
     <div class="hero__graphic">
-      <img src="images/logo.jpg" alt="Logo de Fierrosol S.A.C.">
+      <img src="assets/img/logo-fierrosol.jpg" alt="Logo de Fierrosol S.A.C." width="600" height="600">
     </div>
   </div>
 </section>
@@ -41,28 +57,30 @@
   <div class="wrap empresa__row">
     <div class="empresa__main">
       <h2>La empresa</h2>
+      <p class="empresa__lema">Trabajamos con responsabilidad e inmediatez.</p>
       <p>Fierrosol S.A.C. es una empresa con amplia experiencia en metalmecánica, dedicada a la elaboración, evaluación, ejecución, mantenimiento y operación de proyectos de ingeniería mecánica: fabricación, montaje y desmontaje de estructuras metálicas y carpintería metálica en general.</p>
       <p>Nuestro soporte radica en la sólida formación y experiencia profesional de los ingenieros, supervisores y técnicos que ejecutan las obras con eficiencia, rapidez y solvencia técnica frente a los requerimientos de nuestros clientes.</p>
       <blockquote>
-        "La compañía empezó con un establecimiento muy pequeño, para luego, gracias al esfuerzo y dedicación de todos nuestros empleados, ir creciendo hasta llegar al lugar donde estamos. Aún nos falta crecer mucho más, pero con empuje y dedicación, seguiremos haciéndolo."
+        <i class="fa-solid fa-quote-left" aria-hidden="true"></i>
+        La compañía empezó con un establecimiento muy pequeño, para luego, gracias al esfuerzo y dedicación de todos nuestros empleados, ir creciendo hasta llegar al lugar donde estamos. Aún nos falta crecer mucho más, pero con empuje y dedicación, seguiremos haciéndolo.
         <cite>Roberto Angulo — Gerente General</cite>
       </blockquote>
     </div>
     <div class="empresa__aside">
-      <h3>Visión</h3>
+      <h3><i class="fa-solid fa-eye" aria-hidden="true"></i> Visión</h3>
       <p>Ser la primera empresa en nuestro rubro, brindando soluciones a las necesidades de nuestros clientes, trabajando en equipo con la rapidez y eficiencia que exigen los proyectos actuales, certificando la calidad de cada producto que distribuimos según las normas dispuestas.</p>
-      <h3>Seguridad y medio ambiente</h3>
+      <h3><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Seguridad y medio ambiente</h3>
       <p>Fomentamos una cultura de prevención de riesgos y un sistema de gestión que cuida la seguridad, la salud ocupacional y el medio ambiente en cada proceso.</p>
     </div>
   </div>
   <div class="wrap">
-    <div class="foto-par">
+    <div class="foto-par foto-par--empresa">
       <figure>
-        <img src="images/equipo-taller.jpg" alt="Colaborador de Fierrosol trasladando un tubo de acero en el local de Chorrillos">
+        <img src="assets/img/equipo-taller.jpg" alt="Colaborador de Fierrosol trasladando un tubo de acero frente al local de Chorrillos" width="904" height="1200" loading="lazy">
         <figcaption>Nuestro equipo en planta, Av. El Sol — Chorrillos</figcaption>
       </figure>
       <figure>
-        <img src="images/equipo-fierrosol.jpg" alt="Equipo completo de Fierrosol S.A.C. posando en planta">
+        <img src="assets/img/equipo-fierrosol.jpg" alt="Equipo completo de Fierrosol S.A.C. posando en la planta" width="1400" height="703" loading="lazy">
         <figcaption>La familia Fierrosol S.A.C.</figcaption>
       </figure>
     </div>
@@ -74,46 +92,46 @@
     <h2>Servicios</h2>
     <p class="section__lead">Un servicio sólido y responsable como nuestro acero.</p>
 
-    <div class="foto-par">
+    <div class="foto-par foto-par--retrato">
       <figure>
-        <img src="images/servicio-rolado.jpg" alt="Operaria de Fierrosol trabajando en máquina roladora de planchas">
+        <img src="assets/img/servicio-rolado.jpg" alt="Operaria de Fierrosol trabajando en una máquina roladora" width="220" height="315" loading="lazy">
         <figcaption>Rolado de planchas y tubos</figcaption>
       </figure>
       <figure>
-        <img src="images/servicio-doblez.jpg" alt="Colaboradores de Fierrosol maniobrando una plancha en la plegadora">
+        <img src="assets/img/servicio-doblez.jpg" alt="Colaboradores de Fierrosol maniobrando una plancha en la plegadora" width="815" height="315" loading="lazy">
         <figcaption>Corte y doblez de planchas</figcaption>
       </figure>
     </div>
 
     <div class="lista-servicios">
-      <div class="servicio">
+      <article class="servicio">
         <span class="servicio__num">01</span>
         <div>
-          <h3>Corte y doblez de planchas</h3>
+          <h3><i class="fa-solid fa-scissors" aria-hidden="true"></i> Corte y doblez de planchas</h3>
           <p>Corte y doblez de planchas de cobre, bronce, aluminio, galvanizadas, acero LAC, LAF e inoxidable, desde 0.5 mm hasta 12 mm de espesor. Fabricamos canales U-C, omegas, vigas, perfiles, canaletas, bandejas porta cable y estructuras metálicas en general.</p>
         </div>
-      </div>
-      <div class="servicio">
+      </article>
+      <article class="servicio">
         <span class="servicio__num">02</span>
         <div>
-          <h3>Perforación de planchas</h3>
+          <h3><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> Perforación de planchas</h3>
           <p>Perforado de acero inoxidable, acero al carbono y aluminio, con diámetros desde 1.0 mm hasta 100.0 mm, en planchas de 0.5 mm hasta 19.0 mm de espesor.</p>
         </div>
-      </div>
-      <div class="servicio">
+      </article>
+      <article class="servicio">
         <span class="servicio__num">03</span>
         <div>
-          <h3>Soldadura MIG / TIG</h3>
+          <h3><i class="fa-solid fa-fire" aria-hidden="true"></i> Soldadura MIG / TIG</h3>
           <p>Soldadura de partes y piezas metálicas a gran escala con personal calificado. Disponemos de soldadura TIG (piezas finas o inoxidables), MIG (mayor espesor) y arco manual (proceso económico con varilla eléctrica).</p>
         </div>
-      </div>
-      <div class="servicio">
+      </article>
+      <article class="servicio">
         <span class="servicio__num">04</span>
         <div>
-          <h3>Rolado de planchas y tubos</h3>
+          <h3><i class="fa-solid fa-rotate" aria-hidden="true"></i> Rolado de planchas y tubos</h3>
           <p>Rolado de cédulas 80, 40 y 30 hasta 4", platinas, ángulos, tees, tubos de acero, cobre y aluminio, para escaleras caracol, ejes y piezas curvas de distintas formas y tamaños.</p>
         </div>
-      </div>
+      </article>
     </div>
   </div>
 </section>
@@ -123,50 +141,58 @@
     <h2>Productos</h2>
     <p class="section__lead">Comercializamos materiales y consumibles para sus proyectos de construcción e industria.</p>
 
-    <div class="foto-par">
+    <div class="foto-par foto-par--retrato">
       <figure>
-        <img src="images/servicio-soldadura.jpg" alt="Técnico de Fierrosol soldando una pieza metálica con esmeril">
+        <img src="assets/img/servicio-soldadura.jpg" alt="Técnico de Fierrosol esmerilando una pieza metálica" width="220" height="315" loading="lazy">
         <figcaption>Trabajo de soldadura y acabado</figcaption>
       </figure>
       <figure>
-        <img src="images/almacen-productos.jpg" alt="Almacén de tubos, perfiles y planchas de acero de Fierrosol">
+        <img src="assets/img/almacen-productos.jpg" alt="Almacén de tubos, perfiles y planchas de acero de Fierrosol" width="815" height="315" loading="lazy">
         <figcaption>Almacén de perfiles, tubos y planchas</figcaption>
       </figure>
     </div>
 
     <div class="grid-productos">
-      <div class="cat">
+      <article class="cat">
+        <i class="fa-solid fa-layer-group cat__icono" aria-hidden="true"></i>
         <h3>Productos planos</h3>
         <p>Planchas y bobinas laminadas en frío y en caliente, calidad comercial, cilindro de gas y estructural.</p>
-      </div>
-      <div class="cat">
+      </article>
+      <article class="cat">
+        <i class="fa-solid fa-ruler-combined cat__icono" aria-hidden="true"></i>
         <h3>Perfiles</h3>
         <p>Platinas, ángulos estructurales, ángulos de alta resistencia y tees.</p>
-      </div>
-      <div class="cat">
+      </article>
+      <article class="cat">
+        <i class="fa-solid fa-gear cat__icono" aria-hidden="true"></i>
         <h3>Ejes y barras calibradas</h3>
         <p>Barras redondas y hexagonales calibradas.</p>
-      </div>
-      <div class="cat">
+      </article>
+      <article class="cat">
+        <i class="fa-solid fa-helmet-safety cat__icono" aria-hidden="true"></i>
         <h3>Barras de construcción</h3>
         <p>ASTM A-615 grado 60, ASTM A-706 grado 60 soldables y acero dimensionado.</p>
-      </div>
-      <div class="cat">
+      </article>
+      <article class="cat">
+        <i class="fa-solid fa-table-cells cat__icono" aria-hidden="true"></i>
         <h3>Alambrón y mallas</h3>
         <p>Alambrón liso y corrugado, alambrón de trefilería, alambre negro recocido, alambre galvanizado y mallas electrosoldadas.</p>
-      </div>
-      <div class="cat">
+      </article>
+      <article class="cat">
+        <i class="fa-solid fa-grip-lines cat__icono" aria-hidden="true"></i>
         <h3>Vigas</h3>
         <p>Canales "U" estándar americano, vigas "I" o doble "T" y vigas "H" alas anchas (WF).</p>
-      </div>
-      <div class="cat">
+      </article>
+      <article class="cat">
+        <i class="fa-solid fa-ring cat__icono" aria-hidden="true"></i>
         <h3>Tubos de acero</h3>
         <p>Tubos negros y galvanizados ISO 65, sin costura ASTM A-53/A-106/API 5L, y tubos mecánicos electrosoldados redondos y cuadrados.</p>
-      </div>
-      <div class="cat">
+      </article>
+      <article class="cat">
+        <i class="fa-solid fa-bolt cat__icono" aria-hidden="true"></i>
         <h3>Soldaduras y otros</h3>
         <p>Electrodos Oerlikon, balletas para puertas enrollables, rieles de corredera y perfiles estructurales conformados en frío.</p>
-      </div>
+      </article>
     </div>
   </div>
 </section>
@@ -175,23 +201,32 @@
   <div class="wrap contacto__row">
     <div>
       <h2>Contacto</h2>
-      <p>Av. El Sol Nro. 1024 "D", Urb. La Campiña, Chorrillos — Lima, Perú</p>
-      <p>Telefax: 251-5002 &nbsp;|&nbsp; Teléfono: 662-6087</p>
-      <p>Nextel: 412*8484 · 826*6884 · 412*3230</p>
-      <p>Correo: contacto@fierrosol.com.pe</p>
+      <ul class="contacto__lista">
+        <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>Av. El Sol Nro. 1024 "D", Urb. La Campiña, Chorrillos — Lima, Perú</span></li>
+        <li><i class="fa-solid fa-fax" aria-hidden="true"></i><span>Telefax: 251-5002</span></li>
+        <li><i class="fa-solid fa-phone" aria-hidden="true"></i><span>Teléfono: 662-6087</span></li>
+        <li><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i><span>Nextel: 412*8484 · 826*6884 · 412*3230</span></li>
+        <li><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>contacto@fierrosol.com.pe</span></li>
+      </ul>
     </div>
     <div class="contacto__horario">
-      <h3>Horario de atención</h3>
+      <h3><i class="fa-solid fa-clock" aria-hidden="true"></i> Horario de atención</h3>
       <p>Lunes a viernes: 8:00 am – 6:00 pm</p>
       <p>Sábados: 8:00 am – 12:00 pm</p>
-      <a href="#" class="btn btn--solid">Escribir por WhatsApp</a>
+      <div class="contacto__acciones">
+        <a href="tel:+5112515002" class="btn btn--solid"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>Llamar ahora</span></a>
+        <a href="mailto:contacto@fierrosol.com.pe" class="btn btn--line"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>Enviar correo</span></a>
+      </div>
     </div>
   </div>
 </section>
 
+</main>
+
 <footer class="footer">
   <div class="wrap">
-    <p>&copy; 2026 Fierrosol S.A.C. · Propuesta de rediseño — Proyecto académico, Taller de Programación Web.</p>
+    <p>&copy; 2026 Fierrosol S.A.C. · Propuesta de rediseño — Proyecto académico, Taller de Programación Web (UTP).</p>
+    <p>Fotografías: Diego Barba L., tomadas del sitio web oficial de Fierrosol S.A.C.</p>
   </div>
 </footer>
 
