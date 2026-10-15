@@ -1,8 +1,10 @@
 /* ==========================================================================
    Fierrosol S.A.C. — Hoja de estilos principal
    Orden: 1 Variables · 2 Base · 3 Tipografía · 4 Íconos · 5 Botones ·
-          6 Header · 7 Hero · 8 Empresa · 9 Fotos · 10 Servicios ·
-          11 Productos · 12 Contacto · 13 Footer · 14 Responsive
+          6 Header · 7 Hero (+ tarjeta 3D) · 8 Empresa · 9 Fotos ·
+          10 Servicios · 11 Productos · 12 Contacto · 13 Footer ·
+          14 Animaciones (@keyframes) · 15 Responsive · 16 Accesibilidad
+   Regla de rendimiento: solo se animan transform y opacity (GPU).
    Las rutas relativas parten de assets/css/ (ej.: ../img/logo.jpg)
    ========================================================================== */
 
@@ -20,6 +22,11 @@
   /* Fallback stack: si la web font no carga, el navegador usa la del sistema */
   --font-title: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
   --font-body: "Inter", Arial, Helvetica, sans-serif;
+
+  /* Movimiento: microinteracciones entre 150 ms y 300 ms */
+  --t-fast: 0.2s;
+  --t-base: 0.3s;
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 /* 2. Base ----------------------------------------------------------------- */
@@ -89,23 +96,43 @@ h3 > i,
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  /* Transición múltiple: solo las propiedades necesarias (nunca "all") */
+  transition: background-color var(--t-fast) ease,
+              border-color var(--t-fast) ease,
+              color var(--t-fast) ease,
+              transform var(--t-fast) ease,
+              box-shadow var(--t-fast) ease;
 }
+
+.btn > i { transition: transform var(--t-fast) ease; }
 
 .btn--solid {
   background: var(--orange);
   color: #fff;
 }
-.btn--solid:hover { background: var(--orange-dark); }
+.btn--solid:hover,
+.btn--solid:focus-visible {
+  background: var(--orange-dark);
+  box-shadow: 0 6px 15px rgba(232, 89, 12, 0.4);
+}
 
 .btn--line {
   border: 1.5px solid #6b7178;
   color: #fff;
 }
-.btn--line:hover {
+.btn--line:hover,
+.btn--line:focus-visible {
   border-color: var(--orange);
   color: var(--orange);
 }
+
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-2px);
+  will-change: transform;    /* solo mientras dura la interacción */
+}
+.btn:hover > i { transform: scale(1.15); }
+.btn:active { transform: translateY(0); }
 
 /* 6. Header --------------------------------------------------------------- */
 .header {
@@ -138,13 +165,33 @@ h3 > i,
 }
 
 .nav a {
+  position: relative;
+  display: inline-block;     /* transform no se aplica a elementos inline */
   margin-left: 1.75rem;
   font-size: 0.92rem;
   color: #d8dadd;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color var(--t-base) ease;
 }
-.nav a:hover { color: var(--orange); }
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -0.3rem;
+  left: 0;
+  height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--t-base) var(--ease-out);
+}
+
+.nav a:hover,
+.nav a:focus-visible { color: var(--orange); }
+
+.nav a:hover::after,
+.nav a:focus-visible::after { transform: scaleX(1); }
 
 /* 7. Hero ----------------------------------------------------------------- */
 .hero {
@@ -195,12 +242,71 @@ h3 > i,
   justify-content: center;
 }
 
-.hero__graphic img {
+/* Tarjeta flip 3D (perspective + transform-style: preserve-3d) */
+.flip {
   width: 100%;
   max-width: 16.25rem;
+  perspective: 1000px;       /* distancia usuario-plano Z */
+  outline-offset: 0.5rem;
+}
+
+.flip__inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.flip:hover .flip__inner,
+.flip:focus-visible .flip__inner {
+  transform: rotateY(180deg);
+  will-change: transform;
+}
+
+.flip__face {
+  border-radius: 50%;
+  backface-visibility: hidden;
+}
+
+.flip__front img {
+  display: block;
+  width: 100%;
   border-radius: 50%;
   background: #fff;
   box-shadow: 0 0 0 0.4rem rgba(255, 255, 255, 0.08);
+}
+
+.flip__back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  background: var(--orange);
+  box-shadow: 0 0 0 0.4rem rgba(255, 255, 255, 0.08);
+  transform: rotateY(180deg);
+}
+
+.flip__desde {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.flip__anio {
+  font-family: var(--font-title);
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.flip__texto {
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
 }
 
 /* 8. La empresa ----------------------------------------------------------- */
@@ -274,7 +380,10 @@ blockquote cite {
   width: 100%;
   height: 20rem;
   object-fit: cover;
+  transition: transform var(--t-base) ease-out;
 }
+
+.foto-par figure:hover img { transform: scale(1.05); }
 
 .foto-par figcaption {
   position: absolute;
@@ -309,7 +418,10 @@ blockquote cite {
   gap: 1.6rem;
   padding: 1.6rem 0;
   border-bottom: 1px solid var(--line);
+  transition: transform var(--t-base) ease-out;
 }
+
+.servicio:hover { transform: translateX(0.4rem); }
 
 .servicio__num {
   min-width: 3.75rem;
@@ -336,15 +448,29 @@ blockquote cite {
 }
 
 .cat {
+  position: relative;
   flex: 1 1 15rem;
   padding: 1.5rem;
   background: #fff;
+  transform-origin: center center;
+  transition: transform var(--t-base) ease,
+              box-shadow var(--t-base) ease;
+}
+
+/* Eleva la tarjeta 5 px y la escala 3 % */
+.cat:hover {
+  z-index: 2;
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 12px 20px rgba(232, 89, 12, 0.15);
+  will-change: transform;
 }
 
 .cat__icono {
   display: block;
+  width: 1.5em;              /* caja fija: el giro ocurre sobre el propio ícono */
   margin-bottom: 0.7rem;
   font-size: 1.5rem;
+  text-align: center;
   color: var(--orange);
 }
 
@@ -403,7 +529,62 @@ blockquote cite {
 
 .footer p + p { margin-top: 0.2rem; }
 
-/* 14. Responsive ---------------------------------------------------------- */
+/* 14. Animaciones (@keyframes) -------------------------------------------- */
+
+/* Entrada del hero: se ejecuta sola al cargar (sin :hover) */
+@keyframes entrar-arriba {
+  from { opacity: 0; transform: translateY(1.5rem); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes entrar-escala {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.hero__eyebrow,
+.hero h1,
+.hero__lead,
+.hero__cta {
+  animation: entrar-arriba 0.6s var(--ease-out) both;
+}
+.hero h1      { animation-delay: 0.1s; }
+.hero__lead   { animation-delay: 0.2s; }
+.hero__cta    { animation-delay: 0.3s; }
+
+.hero__graphic .flip {
+  animation: entrar-escala 0.7s var(--ease-out) 0.2s both;
+}
+
+/* Giro continuo (loader/engranaje): arranca solo al pasar el cursor
+   usando animation-play-state */
+@keyframes girar {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.giro {
+  display: inline-block;
+  animation: girar 3s linear infinite paused;
+}
+
+.cat__icono.giro { display: block; }
+
+.cat:hover .giro,
+.servicio:hover .giro { animation-play-state: running; }
+
+/* Pulso: escala 1 → 1.2 → 1 y baja la opacidad (llama la atención al CTA) */
+@keyframes pulso {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%      { opacity: 0.7; transform: scale(1.2); }
+}
+
+.pulso {
+  display: inline-block;
+  animation: pulso 1.8s ease-in-out infinite;
+}
+
+/* 15. Responsive ---------------------------------------------------------- */
 @media (max-width: 50rem) {
   .hero__row,
   .empresa__row,
@@ -425,4 +606,15 @@ blockquote cite {
   .foto-par img { height: 14rem; }
 
   .cat { flex: 1 1 45%; }
+}
+
+/* 16. Accesibilidad: respeta la preferencia "reducir movimiento" (WCAG 2.1) */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
